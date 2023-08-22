@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-5 mx-auto border rounded pt-4"
+             style="box-shadow: 0 2px 10px rgba(0,0,0,.1),3px 5px 20px rgba(0,0,0,.2);">
+            <h3 class="alert alert-light border rounded ">Create an account</h3>
+            <form action="/signup" method="post">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="">First name</label>
+                    <input type="text" name="firstname" id="firstname" value="{{values.first_name}}"
+                           class="form-control" placeholder="First name" aria-describedby="helpId">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">Last name</label>
+                    <input type="text" name="lastname" id="lastname" value="{{values.last_name}}" class="form-control"
+                           placeholder="Last name" aria-describedby="helpId">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Phone No</label>
+                    <input type="number" name="phone" id="phone" value="{{values.phone_no}}" class="form-control"
+                           placeholder="1234567890" aria-describedby="helpId">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="Email" name="email" id="email" value="{{values.email}}" class="form-control"
+                           placeholder="example@gmail.com" aria-describedby="helpId">
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="" value="{{values.password}}" class="form-control"
+                           placeholder="*********" aria-describedby="helpId">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" name="button" value="Create an account"
+                           placeholder="Last name" aria-describedby="helpId">
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
